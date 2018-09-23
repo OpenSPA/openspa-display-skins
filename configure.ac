@@ -336,4 +336,6 @@ skins/display800/OE-A_LCDSkin_19/Makefile
 skins/display800/OE-A_LCDSkin_19/meta/Makefile
 skins/display800/OE-A_LCDSkin_20/Makefile
 skins/display800/OE-A_LCDSkin_20/meta/Makefile
+skins/display800/LCDSkin_elduque/Makefile
+skins/display800/LCDSkin_elduque/meta/Makefile
 ])
