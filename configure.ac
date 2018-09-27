@@ -298,6 +298,8 @@ skins/display480/Lcd_Rosa/Makefile
 skins/display480/Lcd_Rosa/meta/Makefile
 skins/display480/Lcd_Verde/Makefile
 skins/display480/Lcd_Verde/meta/Makefile
+skins/display480/LCDSkin_elduque/Makefile
+skins/display480/LCDSkin_elduque/meta/Makefile
 skins/display720/Makefile
 skins/display720/OE-A_LCDSkin_1/Makefile
 skins/display720/OE-A_LCDSkin_1/meta/Makefile
