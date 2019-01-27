@@ -18,7 +18,7 @@ if HAVE_COLORLCD400
 SUBDIRS = display400
 endif
 
-if HAVE_COLORLCD400s
+if HAVE_COLORLCD400S
 SUBDIRS = display400
 endif
 
