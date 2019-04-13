@@ -338,8 +338,8 @@
 	<!-- Plugin Browser */ -->
 	
 	<!-- /* ########## Standby ########## -->
-	<!--<screen name="StandbySummary" position="0,0" size="400,240">
-		<widget source="global.CurrentTime" render="Label" position="0,80" size="400,80" font="lack_lcd;80" halign="center">
+	<!--<screen name="StandbySummary" position="0,0" size="480,320">
+		<widget source="global.CurrentTime" render="Label" position="0,110" size="480,100" font="lack_lcd;100" foregroundColor="StandbyColor" halign="center">
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
 		<eLabel position="0,235" size="480,85" backgroundColor="DateBarColor" />
