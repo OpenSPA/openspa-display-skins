@@ -72,7 +72,7 @@
 		</widget>
 		<widget source="session.Event_Now" render="Label" position="80, 34" size="30,14" font="Myrida;14">
 			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
+			<convert type="RemainingToText"></convert>
 		</widget>
 	</screen>
 <!-- LCD screen InfoBarMoviePlayer -->
@@ -95,7 +95,7 @@
 		</widget>
 	</screen>
 <!-- LCD screen Channelselection -->
-	<screen name="ChannelSelection_summary" position="0,0" size="256,64">
+	<screen name="ChannelSelectionSummary" position="0,0" size="256,64">
 		<widget source="parent.ServiceEvent" render="RollerCharLCDLong" position="0,0" size="256,20" font="Myrida;18" noWrap="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
@@ -109,9 +109,8 @@
 	</screen>
 <!-- LCD screen (menus) -->
 	<screen name="MenuSummary" position="0,0" size="256,64">
-		<widget source="parent.title" render="RollerCharLCDLong" position="0,0" size="256,21" font="Myrida;18" noWrap="1" />
-		<widget source="parent.menu" render="RollerCharLCDLong" position="0,25" size="256,21" font="Myrida;16" noWrap="1" >
-			<convert type="StringListSelection" />
+		<widget source="Title" render="RollerCharLCDLong" position="0,0" size="256,21" font="Myrida;18" noWrap="1" />
+		<widget source="entry" render="RollerCharLCDLong" position="0,25" size="256,21" font="Myrida;16" noWrap="1" >
 		</widget>
 		<widget source="global.CurrentTime" render="Label" position="0,46" size="256,18" font="Myrida;16" halign="left">
 			<convert type="ClockToText">WithSeconds</convert>
@@ -161,7 +160,7 @@
 	</screen>
 <!-- LCD screen Service Scan -->
 	<screen name="ServiceScanSummary" position="0,0" size="256,64">
-		<widget name="Title" position="0,0" size="256,42" font="Myrida;18" transparent="1" />
+		<widget source="Title" render="Label" position="0,0" size="256,42" font="Myrida;18" transparent="1" />
 		<widget name="scan_progress" position="0,50" borderWidth="1" size="256,12" />
 		<widget name="Service" position="0,22" size="256,26" font="Myrida;16" transparent="1" />
 	</screen>
@@ -184,14 +183,14 @@
 		<widget source="desc" render="RollerCharLCDLong" position="6,20" size="256,20" font="Myrida;20" noWrap="1" />
 	</screen>
 <!-- ATV -->
-	<screen name="QuickMenu_summary" position="0,0" size="256,64">
+	<screen name="QuickMenuSummary" position="0,0" size="256,64">
 		<widget source="parent.Title" render="Label" position="0,0" size="256,21" font="Myrida;20" halign="center" valgin="bottom" />
 		<widget source="parent.summary_description" render="Label" position="0,22" size="256,21" zPosition="1" font="Myrida;20" halign="center" valign="center" />
 		<widget source="global.CurrentTime" render="Label" position="0,46" size="256,18" font="Myrida;16" halign="center">
 			<convert type="ClockToText">WithSeconds</convert>
 		</widget>
 	</screen>
-	<screen name="Infopanel_summary" position="0,0" size="256,64">
+	<screen name="InfopanelSummary" position="0,0" size="256,64">
 		<widget source="parent.Title" render="Label" position="0,0" size="256,21" font="Myrida;20" halign="center" valgin="bottom" />
 		<widget source="parent.summary_description" render="Label" position="0,22" size="256,21" zPosition="1" font="Myrida;20" halign="center" valign="center" />
 		<widget source="global.CurrentTime" render="Label" position="0,46" size="256,18" font="Myrida;16" halign="center">
@@ -206,17 +205,21 @@
 	</screen>
 <!-- LCD screen Setup -->
 	<screen name="SetupSummary" position="0,0" size="256,64">
-		<widget source="SetupTitle" render="RollerCharLCDLong" position="6,0" size="256,16" font="Myrida;18" noWrap="1" />
-		<widget source="SetupEntry" render="RollerCharLCDLong" position="6,20" size="256,16" font="Myrida;16" noWrap="1" />
-		<widget source="SetupValue" render="RollerCharLCDLong" position="6,38" size="256,16" font="Myrida;16" noWrap="1" />
+		<widget source="Title" render="RollerCharLCDLong" position="6,0" size="256,16" font="Myrida;18" noWrap="1" />
+		<widget source="entry" render="RollerCharLCDLong" position="6,20" size="256,16" font="Myrida;16" noWrap="1" />
+		<widget source="value" render="RollerCharLCDLong" position="6,38" size="256,16" font="Myrida;16" noWrap="1" />
 	</screen>
 <!-- LCD screen MessageBox -->
-	<screen name="MessageBox_summary" position="0,0" size="256,64" id="1">
+	<screen name="MessageBoxSummary" position="0,0" size="256,64" id="1">
 		<widget source="parent.Text" render="Label" position="0,0" size="256,45" font="Myrida;14" halign="center" valign="center" />
 		<widget source="parent.selectedChoice" render="Label" position="6,46" size="244,18" font="Myrida;16" halign="center" valign="center" />
 	</screen>
+	<screen name="MessageBoxSummary" position="0,0" size="256,64" id="1">
+		<widget source="text" render="Label" position="0,0" size="256,45" font="Myrida;14" halign="center" valign="center" />
+		<widget source="option" render="Label" position="6,46" size="244,18" font="Myrida;16" halign="center" valign="center" />
+	</screen>
 <!-- LCD screen ChoiceBox -->
-	<screen name="ChoiceBox_summary" position="0,0" size="256,64" id="1">
+	<screen name="ChoiceBoxSummary" position="0,0" size="256,64" id="1">
 		<widget source="parent.summary_list" render="Label" position="0,0" size="244,64" font="Myrida;12" />
 	</screen>
 		<!-- LCD screen EMC -->
@@ -253,6 +256,17 @@
 		</widget>
 		<panel name="SummaryIconsPanel" />
 		<panel name="SummaryClockPanel" />
+	</screen>
+	<!-- Radio text / optional color-display DAB images -->
+	<screen name="RdsInfoDisplaySummary" position="0,0" size="255,64" zPosition="1" backgroundColor="#000000" flags="wfNoBorder">
+		<widget source="station" render="RunningText" position="0,0" size="255,20" font="Regular;16" halign="center" options="movetype=running,direction=left,wrap=0,always=0,startdelay=3000,steptime=80" />
+		<widget source="message" render="RunningText" position="0,22" size="255,28" font="Regular;22" halign="center" valign="center" options="movetype=running,direction=left,wrap=0,always=0,startdelay=2000,steptime=80" />
+		<widget source="global.CurrentTime" render="Label" position="127,50" size="128,14" font="Regular;12" halign="right" noWrap="1">
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="session.RecordState" render="FixedLabel" text="REC" position="0,50" size="127,14" font="Regular;12" noWrap="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 </skin>
 

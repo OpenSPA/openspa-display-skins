@@ -92,7 +92,7 @@
 </widget>
 <widget source="session.Event_Now" render="Label" position="375,170" foregroundColor="#00B0B0AE" size="400,90" font="VFD;90" halign="right" valign="top">
   <convert type="EventTime">Remaining</convert>
-  <convert type="RemainingToText">InMinutes</convert>
+  <convert type="RemainingToText"></convert>
 </widget>
 <eLabel name="progress" position="230,420" size="350,3" backgroundColor="#00FFFFFF" />
 <widget source="session.Event_Now" render="Progress" position="230,414" size="350,15" borderWidth="0" foregroundColor="#0004B404" zPosition="1" transparent="1">
@@ -414,7 +414,7 @@
 </screen>
 
 <!-- Standby -->
-<!--<screen name="StandbySummary" position="0,0" size="800,480" >
+<screen name="StandbySummary" position="0,0" size="800,480" >
   <widget source="global.CurrentTime" render="Label" position="50,80" size="520,200" font="VFD;190" halign="right" valign="top">
 			<convert type="ClockToText">Format:%H:%M</convert>
 	</widget>
@@ -431,9 +431,9 @@
 	<widget source="session.RecordState" render="Pixmap" pixmap="/usr/share/enigma2/display/OE-A_LCDSkin_4/icon_REC_red.png" position="590,200"  size="200,60" alphatest="blend">
 			<convert type="ConditionalShowHide" />
 	</widget>
- </screen>-->
+ </screen>
 
-  <screen name="ChannelSelection_summary" position="0,0" size="800,480" >
+  <screen name="ChannelSelectionSummary" position="0,0" size="800,480" >
 		<panel name="LCDIconTemplate" />
 		<panel name="LCDClockTemplate" />
 		<widget source="parent.ServiceEvent" render="Picon" position="284,90" zPosition="4" size="220,132" transparent="1" alphatest="blend">
@@ -447,32 +447,35 @@
 		</widget>
 	</screen>
 	
-<screen name="ChoiceBox_summary" position="0,0" size="800,480" >
+<screen name="ChoiceBoxSummary" position="0,0" size="800,480" >
 		<widget source="parent.summary_list" render="Label" position="45,40" size="720,400" font="RegularLCD;58" valign="top"  />
 	</screen>
-	<screen name="MessageBox_summary" position="0,0" size="800,480" >
+	<screen name="MessageBoxSummary" position="0,0" size="800,480" >
 		<widget source="parent.Text" render="Label" position="30,20" size="740,300" font="RegularLCD;58" halign="center" valign="center" />
 		<widget source="parent.selectedChoice" render="Label" position="200,320" size="400,60" font="RegularLCD;58" halign="center" valign="center" />
+	</screen>
+	<screen name="MessageBoxSummary" position="0,0" size="800,480" >
+		<widget source="text" render="Label" position="30,20" size="740,300" font="RegularLCD;58" halign="center" valign="center" />
+		<widget source="option" render="Label" position="200,320" size="400,60" font="RegularLCD;58" halign="center" valign="center" />
 	</screen>
 	<screen name="MenuSummary" position="0,0" size="800,480" >
 		<panel name="LCDIconTemplate" />
 		<panel name="LCDClockTemplate" />
-		<widget source="parent.title" render="Label" position="30,130" size="740,110" font="SemiboldLCD;63" halign="center" valign="center" backgroundColor="LCDBackground" />
-		<widget source="parent.menu" render="Label" position="30,240" size="740,180" font="RegularLCD;70" halign="center" valign="center" backgroundColor="LCDBackground">
-			<convert type="StringListSelection" />
+		<widget source="Title" render="Label" position="30,130" size="740,110" font="SemiboldLCD;63" halign="center" valign="center" backgroundColor="LCDBackground" />
+		<widget source="entry" render="Label" position="30,240" size="740,180" font="RegularLCD;70" halign="center" valign="center" backgroundColor="LCDBackground">
 		</widget>
 	</screen>
 	<screen name="ServiceScanSummary" position="0,0" size="800,480" >
-		<widget name="Title" position="40,20" size="720,140" font="RegularLCD;75" transparent="1" backgroundColor="LCDBackground" />
+		<widget source="Title" render="Label" position="40,20" size="720,140" font="RegularLCD;75" transparent="1" backgroundColor="LCDBackground" />
 		<widget name="Service" position="40,180" size="720,210" font="RegularLCD;58" transparent="1" backgroundColor="LCDBackground" />
 		<widget name="scan_progress" position="95,380" zPosition="1" borderWidth="3" size="610,60" backgroundColor="LCDBackground" />
 	</screen>
 	<screen name="SetupSummary" position="0,0" size="800,480" >
 		<panel name="LCDIconTemplate" />
 		<panel name="LCDClockTemplate" />
-		<widget source="SetupTitle" render="Label" position="30,110" size="720,90" font="SemiboldLCD;70" halign="center" backgroundColor="LCDBackground" />
-		<widget source="SetupEntry" render="Label" position="30,200" size="720,180" font="SemiboldLCD;63" halign="center" backgroundColor="LCDBackground" />
-		<widget source="SetupValue" render="Label" position="30,380" size="720,90" font="RegularLCD;53" halign="center" backgroundColor="LCDBackground" />
+		<widget source="Title" render="Label" position="30,110" size="720,90" font="SemiboldLCD;70" halign="center" backgroundColor="LCDBackground" />
+		<widget source="entry" render="Label" position="30,200" size="720,180" font="SemiboldLCD;63" halign="center" backgroundColor="LCDBackground" />
+		<widget source="value" render="Label" position="30,380" size="720,90" font="RegularLCD;53" halign="center" backgroundColor="LCDBackground" />
 	</screen>
 	
 <screen name="SimpleSummary" position="0,0" size="800,480" >
@@ -503,4 +506,16 @@
 		<eLabel text="www.vuplus-support.org" position="40, 400" size="720,42" font="RegularLCD;40" halign="center" valign="center"/>
 	</screen>
 
+	<!-- Radio text / optional color-display DAB images -->
+	<screen name="RdsInfoDisplaySummary" position="0,0" size="800,480" zPosition="1" backgroundColor="#000000" flags="wfNoBorder">
+		<widget source="station" render="RunningText" position="0,0" size="800,60" font="Regular;56" halign="center" options="movetype=running,direction=left,wrap=0,always=0,startdelay=3000,steptime=80" />
+		<widget source="message" render="RunningText" position="0,62" size="800,380" font="Regular;44" halign="center" valign="center" options="movetype=running,direction=top,wrap=1,always=0,startdelay=2000,steptime=80" />
+		<widget name="picture" position="0,62" size="800,380" zPosition="1" alphatest="blend" scaleFlags="centerScaled" />
+		<widget source="global.CurrentTime" render="Label" position="400,442" size="400,38" font="Regular;36" halign="right" noWrap="1">
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="session.RecordState" render="FixedLabel" text="REC" position="0,442" size="400,38" font="Regular;36" noWrap="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+	</screen>
 </skin>

@@ -68,7 +68,7 @@
     
   
 <!-- channelselection-->
-	<screen name="ChannelSelection_summary" position="fill">
+	<screen name="ChannelSelectionSummary" position="fill">
 		<widget source="parent.ServiceEvent" render="Label" position="center,10" size="220,65" font="FdLcD;30" halign="center" foregroundColor="#FE9A2E" >
 			<convert type="ServiceName">Name</convert>
 		</widget>
@@ -77,7 +77,7 @@
 		</widget>
 		<widget source="parent.ServiceEvent" render="Label" position="0,145" size="110,25" font="Regular; 25" foregroundColor="#F78181" >
 			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">FOLLOW</convert>
+			<convert type="RemainingToText"></convert>
 		</widget>		
 		<widget source="parent.ServiceEvent" render="Progress" position="115,150" size="105,24" borderWidth="2" >
 			<convert type="EventTime">Progress</convert>
@@ -86,9 +86,8 @@
   
 <!-- menus-->
 	<screen name="MenuSummary" position="0,0" size="220,176">
-		<widget source="parent.title" render="Label" position="0,38" size="220,30" font="FdLcD;28" halign="left" noWrap="1" />
-		<widget source="parent.menu" render="Label" position="0,100" size="220,22" font="FdLcD;22" halign="left">
-			<convert type="StringListSelection" />
+		<widget source="Title" render="Label" position="0,38" size="220,30" font="FdLcD;28" halign="left" noWrap="1" />
+		<widget source="entry" render="Label" position="0,100" size="220,22" font="FdLcD;22" halign="left">
 		</widget>
 		<panel name="SummaryClockPanel" />
 	</screen>
@@ -149,9 +148,9 @@
 
 <!-- setup-->
 	<screen name="SetupSummary" position="fill">
-		<widget source="SetupTitle" render="Label" position="top" size="*,61" font="FdLcD;30" halign="left" />
-		<widget source="SetupEntry" render="Label" position="top" size="*,51" font="FdLcD;25" halign="left" />
-		<widget source="SetupValue" render="Label" position="top" size="*,51" font="FdLcD;25" halign="left" />
+		<widget source="Title" render="Label" position="top" size="*,61" font="FdLcD;30" halign="left" />
+		<widget source="entry" render="Label" position="top" size="*,51" font="FdLcD;25" halign="left" />
+		<widget source="value" render="Label" position="top" size="*,51" font="FdLcD;25" halign="left" />
 	</screen>
 
 <!-- misc-->
@@ -167,15 +166,8 @@
 		</widget>
 	</screen>
 
-	<screen name="VideoWizardSummary" position="fill">
-		<widget name="text" position="top" size="*,40" font="FdLcD;12" transparent="1" />
-		<widget source="parent.list" render="Label" position="fill" font="FdLcD;45" halign="center" >
-			<convert type="StringListSelection" />
-		</widget>
-	</screen>
-
 <!-- standby -->
-	<!--<screen name="StandbySummary" position="fill">
+	<screen name="StandbySummary" position="fill">
 		<widget source="global.CurrentTime" render="Label" position="0,0" size="220,24" font="FdLcD;22" halign="left"  noWrap="1">
 			<convert type="ClockToText">Format:%d.%m.%Y</convert>
 		</widget>
@@ -190,8 +182,7 @@
 			<convert type="ConfigEntryTest">config.usage.blinking_rec_symbol_during_recording,False,CheckSourceBoolean</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-	</screen>-->
-
+	</screen>
 <!-- Plugin browser -->
 	<screen name="PluginBrowserSummary" position="fill">
 		<widget source="parent.Title" render="Label" position="top" size="*,26" font="FdLcD;25" noWrap="1" />
@@ -200,7 +191,7 @@
 	</screen>
 
 <!-- JobView Summary -->
-	<screen name="JobView_summary" position="fill">
+	<screen name="JobViewSummary" position="fill">
 		<widget source="parent.summary_job_name" render="Label" position="top" size="*,51" font="FdLcD;25" halign="center" />
 		<widget source="parent.summary_job_task" render="Label" position="top" size="*,41" font="FdLcD;20" halign="center" />
 		<widget source="parent.summary_job_progress" render="Progress" position="top" size="80,16" borderWidth="1" zPosition="1" halign="center" />
@@ -209,17 +200,38 @@
 		</widget>
 	</screen>
 
-	<screen name="ChoiceBox_summary" position="fill">
+	<screen name="ChoiceBoxSummary" position="fill">
 		<widget source="parent.summary_list" render="Label" position="top" size="*,181" font="FdLcD;25" halign="left" />
-    </screen>	
+	</screen>
 
-	<screen name="MessageBox_summary" position="fill">
+	<screen name="MessageBoxSummary" position="fill">
 		<widget source="parent.Text" render="Label" position="top" size="*,95" font="FdLcD;31" halign="center" valign="center" />
 		<widget source="parent.selectedChoice" render="Label" position="bottom" size="*,44" font="FdLcD;44" halign="center" valign="center" />
 	</screen>
 
-	<screen name="MessageBoxSimple_summary" position="fill">
-		<widget source="parent.Text" render="Label" position="top" size="*,95" font="FdLcD;31" halign="center" valign="center" />
-		<widget source="parent.selectedChoice" render="Label" position="bottom" size="*,44" font="FdLcD;44" halign="center" valign="center" />
+	<screen name="MessageBoxSimpleSummary" position="fill">
+		<panel name="MessageBoxSummary" />
+	</screen>
+
+	<screen name="MessageBoxSummary" position="fill">
+		<widget source="text" render="Label" position="top" size="*,95" font="FdLcD;31" halign="center" valign="center" />
+		<widget source="option" render="Label" position="bottom" size="*,44" font="FdLcD;44" halign="center" valign="center" />
+	</screen>
+
+	<screen name="MessageBoxSimpleSummary" position="fill">
+		<panel name="MessageBoxSummary" />
+	</screen>
+
+	<!-- Radio text / optional color-display DAB images -->
+	<screen name="RdsInfoDisplaySummary" position="0,0" size="220,176" zPosition="1" backgroundColor="#000000" flags="wfNoBorder">
+		<widget source="station" render="RunningText" position="0,0" size="220,28" font="Regular;24" halign="center" options="movetype=running,direction=left,wrap=0,always=0,startdelay=3000,steptime=80" />
+		<widget source="message" render="RunningText" position="0,30" size="220,126" font="Regular;22" halign="center" valign="center" options="movetype=running,direction=top,wrap=1,always=0,startdelay=2000,steptime=80" />
+		<widget name="picture" position="0,30" size="220,126" zPosition="1" alphatest="blend" scaleFlags="centerScaled" />
+		<widget source="global.CurrentTime" render="Label" position="110,156" size="110,20" font="Regular;18" halign="right" noWrap="1">
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="session.RecordState" render="FixedLabel" text="REC" position="0,156" size="110,20" font="Regular;18" noWrap="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 </skin>
